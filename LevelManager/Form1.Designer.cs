@@ -48,16 +48,21 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(12, 25);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(164, 152);
+            this.pictureBox1.Size = new System.Drawing.Size(150, 150);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
@@ -67,18 +72,22 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 218);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(1, 217);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(164, 32);
+            this.button1.Size = new System.Drawing.Size(169, 32);
             this.button1.TabIndex = 2;
             this.button1.Text = "1. Загрузить";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(196, 218);
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Location = new System.Drawing.Point(185, 217);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(164, 32);
+            this.button2.Size = new System.Drawing.Size(169, 32);
             this.button2.TabIndex = 5;
             this.button2.Text = "2. Конвертировать в Ч/Б";
             this.button2.UseVisualStyleBackColor = true;
@@ -86,6 +95,8 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(196, 9);
             this.label2.Name = "label2";
@@ -95,29 +106,37 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Location = new System.Drawing.Point(196, 25);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(164, 152);
+            this.pictureBox2.Size = new System.Drawing.Size(150, 150);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
             // trackBar1
             // 
+            this.trackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBar1.BackColor = System.Drawing.SystemColors.Control;
-            this.trackBar1.Location = new System.Drawing.Point(196, 183);
+            this.trackBar1.Location = new System.Drawing.Point(185, 182);
             this.trackBar1.Maximum = 255;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(161, 45);
+            this.trackBar1.Size = new System.Drawing.Size(166, 45);
             this.trackBar1.TabIndex = 6;
             this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trackBar1.Value = 127;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(386, 183);
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button3.Location = new System.Drawing.Point(365, 182);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(164, 32);
+            this.button3.Size = new System.Drawing.Size(169, 32);
             this.button3.TabIndex = 9;
             this.button3.Text = "3. Навести марафет";
             this.button3.UseVisualStyleBackColor = true;
@@ -125,8 +144,10 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(386, 9);
+            this.label3.Location = new System.Drawing.Point(376, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(165, 13);
             this.label3.TabIndex = 8;
@@ -134,18 +155,20 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(386, 25);
+            this.pictureBox3.Location = new System.Drawing.Point(376, 25);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(164, 152);
+            this.pictureBox3.Size = new System.Drawing.Size(150, 150);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 7;
             this.pictureBox3.TabStop = false;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(386, 218);
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.Location = new System.Drawing.Point(365, 217);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(164, 32);
+            this.button4.Size = new System.Drawing.Size(169, 32);
             this.button4.TabIndex = 10;
             this.button4.Text = "4. Выгрузить";
             this.button4.UseVisualStyleBackColor = true;
@@ -154,7 +177,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 260);
+            this.ClientSize = new System.Drawing.Size(584, 262);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label3);
@@ -168,6 +191,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
             this.Text = "Level manager";
+            this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
