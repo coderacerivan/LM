@@ -20,26 +20,26 @@ namespace LevelManager
         private void button2_Click(object sender, EventArgs e)
         {
             int terminator = trackBar1.Value;
-            pictureBox2.Image = new Bitmap(pictureBox1.Image.Width,pictureBox1.Image.Height);            
+            pictureBox2.Image = new Bitmap(pictureBox1.Image.Width, pictureBox1.Image.Height);
             for (int x = 0; x < pictureBox1.Image.Width; x++)
             {
                 for (int y = 0; y < pictureBox1.Image.Height; y++)
                 {
-                    if (((Bitmap)pictureBox1.Image).GetPixel(x, y).ToArgb() <= -terminator*65536)
+                    if (((Bitmap)pictureBox1.Image).GetPixel(x, y).ToArgb() <= -terminator * 65536)
                     {
                         ((Bitmap)pictureBox2.Image).SetPixel(x, y, Color.Black);
                     }
-                    else 
+                    else
                     {
                         if (((Bitmap)pictureBox1.Image).GetPixel(x, y).ToArgb() > -terminator * 65536)
                         {
                             ((Bitmap)pictureBox2.Image).SetPixel(x, y, Color.White);
-                        }                        
+                        }
                     }
 
                 }
             }
-       
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -73,6 +73,7 @@ namespace LevelManager
             drpo = Graphics.FromImage(pictureBox3.Image);
             float ky = (float)pictureBox3.Height / (float)pictureBox3.Image.Height;
             float kx = (float)pictureBox3.Width / (float)pictureBox3.Image.Width;
+            pnt = ((Bitmap)pictureBox3.Image).GetPixel(Convert.ToInt32(e.X / kx), Convert.ToInt32(e.Y / ky));
             if (radioButton1.Checked)
             {//золото
                 pnt = Color.Yellow;
@@ -89,8 +90,55 @@ namespace LevelManager
             {//Камень
                 pnt = Color.Gray;
             }
-            drpo.DrawRectangle(new Pen(pnt), e.X / kx, e.Y / ky, 1.0F, 1.0F);
-            pictureBox3.Invalidate();
+            //drpo.DrawRectangle(new Pen(pnt), e.X / kx, e.Y / ky, 1.0F, 1.0F);
+              //      Math.Round().
+                //   e.X.     
+                ((Bitmap)pictureBox3.Image).SetPixel(Convert.ToInt32(e.X/kx), Convert.ToInt32(e.Y/ky), pnt);
+
+
+                pictureBox3.Invalidate();
+            MessageBox.Show("x "+ Convert.ToInt32(e.X / kx) + " y " + Convert.ToInt32(e.Y / ky) + " color "+ ((Bitmap)pictureBox3.Image).GetPixel(Convert.ToInt32(e.X / kx), Convert.ToInt32(e.Y / ky)));
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            int yel = 0;
+            int red = 0;
+            int gra = 0;
+            int blu = 0;
+            int bla = 0;
+            int whi = 0;
+            for (int x = 0; x < pictureBox3.Image.Width; x++)
+            {
+                for (int y = 0; y < pictureBox3.Image.Height; y++)
+                {
+                    if (((Bitmap)pictureBox3.Image).GetPixel(x, y) == Color.Yellow)
+                    {
+                        yel++;
+                    }
+                    if (((Bitmap)pictureBox3.Image).GetPixel(x, y) == Color.Gray)
+                    {
+                        gra++;
+                    }
+                    if (((Bitmap)pictureBox3.Image).GetPixel(x, y) == Color.Red)
+                    {
+                        red++;
+                    }
+                    if (((Bitmap)pictureBox3.Image).GetPixel(x, y) == Color.Blue)
+                    {
+                        blu++;
+                    }
+                    if (((Bitmap)pictureBox3.Image).GetPixel(x, y) == Color.Black)
+                    {
+                        bla++;
+                    }
+                    if (((Bitmap)pictureBox3.Image).GetPixel(x, y) == Color.White)
+                    {
+                        whi++;
+                    }
+                }
+            }
+            MessageBox.Show("Эта карта содержит:\nЗолота: "+yel+ "\nУскорителей: " + blu + "\nАгрессии: " + red +"\nКамней: "+gra + "\nБелоты: " + whi + "\nЧерноты: " + bla);
         }
     }
 }
