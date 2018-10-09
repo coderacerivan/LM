@@ -45,7 +45,7 @@ namespace LevelManager
         private void button3_Click(object sender, EventArgs e)
         {
             pictureBox3.Image = new Bitmap(pictureBox2.Image.Width, pictureBox2.Image.Height);
-            
+            pictureBox3.Image = (Bitmap)pictureBox2.Image;
 
         }
 
@@ -63,6 +63,34 @@ namespace LevelManager
             //pictureBox2.Top = 25;
             //pictureBox3.Left = 12 + pictureBox1.Width + 12 + pictureBox1.Width+12;
             //pictureBox3.Top = 25;
+        }
+
+        private void pictureBox3_MouseDown(object sender, MouseEventArgs e)
+        {
+            Color pnt = new Color();
+            Graphics drpo;
+            Rectangle rect = new Rectangle();
+            drpo = Graphics.FromImage(pictureBox3.Image);
+            float ky = (float)pictureBox3.Height / (float)pictureBox3.Image.Height;
+            float kx = (float)pictureBox3.Width / (float)pictureBox3.Image.Width;
+            if (radioButton1.Checked)
+            {//золото
+                pnt = Color.Yellow;
+            }
+            if (radioButton2.Checked)
+            {//ускорение
+                pnt = Color.Blue;
+            }
+            if (radioButton3.Checked)
+            {//Агрессия
+                pnt = Color.Red;
+            }
+            if (radioButton4.Checked)
+            {//Камень
+                pnt = Color.Gray;
+            }
+            drpo.DrawRectangle(new Pen(pnt), e.X / kx, e.Y / ky, 1.0F, 1.0F);
+            pictureBox3.Invalidate();
         }
     }
 }
