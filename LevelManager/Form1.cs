@@ -57,12 +57,12 @@ namespace LevelManager
             //pictureBox1.Height = (Int32)(this.Height / 2);
             //pictureBox2.Height = (Int32)(this.Height / 2);
             //pictureBox3.Height = (Int32)(this.Height / 2);
-            pictureBox1.Left = 12;
-            pictureBox1.Top = 25;
-            pictureBox2.Left = 12+ pictureBox1.Width+12;
-            pictureBox2.Top = 25;
-            pictureBox3.Left = 12 + pictureBox1.Width + 12 + pictureBox1.Width+12;
-            pictureBox3.Top = 25;
+            //pictureBox1.Left = 12;
+            //pictureBox1.Top = 25;
+            //pictureBox2.Left = 12+ pictureBox1.Width+12;
+            //pictureBox2.Top = 25;
+            //pictureBox3.Left = 12 + pictureBox1.Width + 12 + pictureBox1.Width+12;
+            //pictureBox3.Top = 25;
         }
     }
 }
