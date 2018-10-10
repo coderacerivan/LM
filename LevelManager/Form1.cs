@@ -97,7 +97,7 @@ namespace LevelManager
 
 
                 pictureBox3.Invalidate();
-            MessageBox.Show("x "+ Convert.ToInt32(e.X / kx) + " y " + Convert.ToInt32(e.Y / ky) + " color "+ ((Bitmap)pictureBox3.Image).GetPixel(Convert.ToInt32(e.X / kx), Convert.ToInt32(e.Y / ky)));
+            //MessageBox.Show("x "+ Convert.ToInt32(e.X / kx) + " y " + Convert.ToInt32(e.Y / ky) + " color "+ ((Bitmap)pictureBox3.Image).GetPixel(Convert.ToInt32(e.X / kx), Convert.ToInt32(e.Y / ky)));
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -112,27 +112,27 @@ namespace LevelManager
             {
                 for (int y = 0; y < pictureBox3.Image.Height; y++)
                 {
-                    if (((Bitmap)pictureBox3.Image).GetPixel(x, y) == Color.Yellow)
+                    if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Yellow.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Yellow.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Yellow.B)
                     {
                         yel++;
                     }
-                    if (((Bitmap)pictureBox3.Image).GetPixel(x, y) == Color.Gray)
+                    if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Gray.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Gray.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Gray.B)
                     {
                         gra++;
                     }
-                    if (((Bitmap)pictureBox3.Image).GetPixel(x, y) == Color.Red)
+                    if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Red.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Red.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Red.B)
                     {
                         red++;
                     }
-                    if (((Bitmap)pictureBox3.Image).GetPixel(x, y) == Color.Blue)
+                    if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Blue.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Blue.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Blue.B)
                     {
                         blu++;
                     }
-                    if (((Bitmap)pictureBox3.Image).GetPixel(x, y) == Color.Black)
+                    if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Black.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Black.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Black.B)
                     {
                         bla++;
                     }
-                    if (((Bitmap)pictureBox3.Image).GetPixel(x, y) == Color.White)
+                    if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.White.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.White.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.White.B)
                     {
                         whi++;
                     }
