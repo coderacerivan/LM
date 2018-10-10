@@ -44,17 +44,24 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.button8 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 24);
+            this.pictureBox1.Location = new System.Drawing.Point(13, 24);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(159, 150);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -63,9 +70,8 @@
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 8);
+            this.label1.Location = new System.Drawing.Point(13, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(127, 13);
             this.label1.TabIndex = 1;
@@ -73,8 +79,7 @@
             // 
             // button1
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Location = new System.Drawing.Point(12, 181);
+            this.button1.Location = new System.Drawing.Point(13, 181);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(159, 32);
             this.button1.TabIndex = 2;
@@ -83,8 +88,7 @@
             // 
             // button2
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.Location = new System.Drawing.Point(12, 442);
+            this.button2.Location = new System.Drawing.Point(13, 442);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(159, 32);
             this.button2.TabIndex = 5;
@@ -94,9 +98,8 @@
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 218);
+            this.label2.Location = new System.Drawing.Point(13, 218);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 13);
             this.label2.TabIndex = 4;
@@ -104,8 +107,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 234);
+            this.pictureBox2.Location = new System.Drawing.Point(13, 234);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(155, 150);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -114,9 +116,8 @@
             // 
             // trackBar1
             // 
-            this.trackBar1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.trackBar1.BackColor = System.Drawing.SystemColors.Control;
-            this.trackBar1.Location = new System.Drawing.Point(12, 391);
+            this.trackBar1.Location = new System.Drawing.Point(13, 391);
             this.trackBar1.Maximum = 255;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(155, 45);
@@ -126,9 +127,8 @@
             // 
             // button3
             // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button3.Location = new System.Drawing.Point(187, 442);
+            this.button3.Location = new System.Drawing.Point(188, 442);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(176, 32);
             this.button3.TabIndex = 9;
@@ -138,9 +138,8 @@
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(177, 8);
+            this.label3.Location = new System.Drawing.Point(178, 8);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(165, 13);
             this.label3.TabIndex = 8;
@@ -148,8 +147,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox3.Location = new System.Drawing.Point(177, 24);
+            this.pictureBox3.Location = new System.Drawing.Point(178, 24);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(400, 400);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -159,8 +157,7 @@
             // 
             // button4
             // 
-            this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button4.Location = new System.Drawing.Point(383, 442);
+            this.button4.Location = new System.Drawing.Point(384, 442);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(176, 32);
             this.button4.TabIndex = 10;
@@ -172,7 +169,7 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.ForeColor = System.Drawing.Color.Yellow;
-            this.radioButton1.Location = new System.Drawing.Point(583, 373);
+            this.radioButton1.Location = new System.Drawing.Point(584, 288);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(61, 17);
             this.radioButton1.TabIndex = 11;
@@ -184,7 +181,7 @@
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.radioButton2.Location = new System.Drawing.Point(583, 396);
+            this.radioButton2.Location = new System.Drawing.Point(584, 311);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(111, 17);
             this.radioButton2.TabIndex = 12;
@@ -196,7 +193,7 @@
             // 
             this.radioButton3.AutoSize = true;
             this.radioButton3.ForeColor = System.Drawing.Color.Red;
-            this.radioButton3.Location = new System.Drawing.Point(583, 419);
+            this.radioButton3.Location = new System.Drawing.Point(584, 334);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(111, 17);
             this.radioButton3.TabIndex = 13;
@@ -208,7 +205,7 @@
             // 
             this.radioButton4.AutoSize = true;
             this.radioButton4.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.radioButton4.Location = new System.Drawing.Point(583, 442);
+            this.radioButton4.Location = new System.Drawing.Point(584, 357);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(64, 17);
             this.radioButton4.TabIndex = 14;
@@ -216,12 +213,87 @@
             this.radioButton4.Text = "Камень";
             this.radioButton4.UseVisualStyleBackColor = true;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(789, 8);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 13);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Превью карты";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Location = new System.Drawing.Point(789, 24);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(400, 400);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 15;
+            this.pictureBox4.TabStop = false;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(703, 443);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(124, 32);
+            this.button5.TabIndex = 18;
+            this.button5.Text = "Показать превью";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(844, 443);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(124, 32);
+            this.button6.TabIndex = 19;
+            this.button6.Text = "Загрузить в файл";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(974, 443);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(215, 32);
+            this.button7.TabIndex = 20;
+            this.button7.Text = "Перенести превью в редактирование";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.CheckOnClick = true;
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.checkedListBox1.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.checkedListBox1.Location = new System.Drawing.Point(584, 24);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(199, 94);
+            this.checkedListBox1.TabIndex = 21;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(573, 443);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(124, 32);
+            this.button8.TabIndex = 22;
+            this.button8.Text = "Загрузить файл карт";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(693, 490);
+            this.ClientSize = new System.Drawing.Size(1201, 487);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.checkedListBox1);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.radioButton4);
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
@@ -244,6 +316,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,6 +339,13 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.Button button8;
     }
 }
 
