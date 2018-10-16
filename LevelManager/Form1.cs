@@ -200,7 +200,12 @@ namespace LevelManager
             MessageBox.Show("Эта карта содержит:\nЗолота: "+yel+ "\nУскорителей: " + blu + "\nАгрессии: " + red +"\nКамней: "+gra + "\nБелоты: " + whi + "\nЧерноты: " + bla);
         }
 
-
+        private void button8_Click(object sender, EventArgs e)
+        {//Загружаем файл карт
+            GameData GD = GameData.getInstance();
+            GD.LoadGame();
+            //GD.LevelMaps
+        }
     }
 
 
