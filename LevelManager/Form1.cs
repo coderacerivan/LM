@@ -43,7 +43,7 @@ namespace LevelManager
         }
 
         private void button3_Click(object sender, EventArgs e)
-        {
+        {//Марафетим
             pictureBox3.Image = new Bitmap(pictureBox2.Image.Width, pictureBox2.Image.Height);
             pictureBox3.Image = (Bitmap)pictureBox2.Image;
 
@@ -90,13 +90,70 @@ namespace LevelManager
             {//Камень
                 pnt = Color.Gray;
             }
-            //drpo.DrawRectangle(new Pen(pnt), e.X / kx, e.Y / ky, 1.0F, 1.0F);
-              //      Math.Round().
-                //   e.X.     
-                ((Bitmap)pictureBox3.Image).SetPixel(Convert.ToInt32(e.X/kx), Convert.ToInt32(e.Y/ky), pnt);
+            if (radioButton5.Checked)
+            {//Вход
+                pnt = Color.FromArgb(255, 128, 255, 128);
+            }
+            if (radioButton6.Checked)
+            {//Выход
+                pnt = Color.Lime;
+            }
+            if (radioButton7.Checked)
+            {//Вода
+                pnt = Color.Aqua;
+            }
+            if (radioButton8.Checked)
+            {//Граница карты
+                pnt = Color.FromArgb(255, 0, 64, 0);
+            }
+            if (radioButton9.Checked)
+            {//Вход для неписей
+                pnt = Color.Green;
+            }
+            if (radioButton10.Checked)
+            {//Стационарный ускоритель (вход)
+                pnt = Color.FromArgb(255, 255, 128, 0);
+            }
+            if (radioButton11.Checked)
+            {//Стационарный ускоритель (выход)
+                pnt = Color.FromArgb(255, 192, 64, 0);
+            }
+            if (trackBar2.Value == 0)
+            {
+                ((Bitmap)pictureBox3.Image).SetPixel(Convert.ToInt32(e.X / kx), Convert.ToInt32(e.Y / ky), pnt);
+            }
+            if (trackBar2.Value == 1)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        ((Bitmap)pictureBox3.Image).SetPixel(Convert.ToInt32(e.X / kx) - 1 + i, Convert.ToInt32(e.Y / ky) - 1 + j, pnt);
+                    }
+                }               
+            }
+            if (trackBar2.Value == 2)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    for (int j = 0; j < 5; j++)
+                    {
+                        ((Bitmap)pictureBox3.Image).SetPixel(Convert.ToInt32(e.X / kx) - 2 + i, Convert.ToInt32(e.Y / ky) - 2 + j, pnt);
+                    }
+                }
+            }
+            if (trackBar2.Value == 3)
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    for (int j = 0; j < 7; j++)
+                    {
+                        ((Bitmap)pictureBox3.Image).SetPixel(Convert.ToInt32(e.X / kx) - 3 + i, Convert.ToInt32(e.Y / ky) - 3 + j, pnt);
+                    }
+                }
+            }
 
-
-                pictureBox3.Invalidate();
+            pictureBox3.Invalidate();
             //MessageBox.Show("x "+ Convert.ToInt32(e.X / kx) + " y " + Convert.ToInt32(e.Y / ky) + " color "+ ((Bitmap)pictureBox3.Image).GetPixel(Convert.ToInt32(e.X / kx), Convert.ToInt32(e.Y / ky)));
         }
 
@@ -140,5 +197,7 @@ namespace LevelManager
             }
             MessageBox.Show("Эта карта содержит:\nЗолота: "+yel+ "\nУскорителей: " + blu + "\nАгрессии: " + red +"\nКамней: "+gra + "\nБелоты: " + whi + "\nЧерноты: " + bla);
         }
+
+       
     }
 }
