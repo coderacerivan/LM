@@ -202,9 +202,107 @@ namespace LevelManager
 
         private void button8_Click(object sender, EventArgs e)
         {//Загружаем файл карт
+            GameData GD = GameData.getInstance();          
+            checkedListBox1.Items.Clear();
+            if (File.Exists("GameData"))
+            {
+                try
+                {
+                    GD.LoadGame();
+                    for (int i = 0; i < GD.LevelQuantity; i++)
+                    {
+                        if (GD.LevelNames[i] != "")
+                        {
+                            checkedListBox1.Items.Add(GD.LevelNames[i] + " " + i + 1);
+                        }
+                        else
+                        {
+                            checkedListBox1.Items.Add("Уровень " + i + 1);
+                        }                        
+
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Произошла ошибка добавления карт в список");
+                }
+            }
+            else
+            {
+                if (MessageBox.Show("Создать новый файл?","Файл GameData не найден",MessageBoxButtons.YesNo) == DialogResult.Yes )
+                {
+                    GD.Bonuses.Initialize();
+                    GD.CrusherLength = 100;
+                    GD.CrusherStructure.Initialize();
+                    GD.LevelLimitations.Initialize();
+                    GD.LevelMaps.Initialize();
+                    GD.LevelQuantity = 0;
+                    GD.LevelScore.Initialize();
+                    GD.LevelSetting.Initialize();
+                    GD.MemCards.Initialize();
+                    GD.MemCardsMove.Initialize();
+                    GD.Money.Initialize();
+                    GD.QActiveProfiles = 0;
+                    GD.QMemCards = 0;
+                    GD.LevelNames.Initialize();
+                }
+            }
+            
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            checkedListBox1.Items.Clear();//Чистим список уровней
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {//Сохраняем наработки в файл
             GameData GD = GameData.getInstance();
-            GD.LoadGame();
-            //GD.LevelMaps
+            GD.SaveGame();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {//Добавляем уровень
+            if (textBox1.Text != "")
+            {
+                GameData GD = GameData.getInstance();
+                int AddedLevel = Convert.ToInt32(checkedListBox1.CheckedItems[1].ToString().Last());//Номер уровня, который хотим добавить
+                for (int i = GD.LevelQuantity-1; i < AddedLevel-1; i--)
+                {
+                    GD.LevelNames[i + 1] = GD.LevelNames[i];
+                    for (int j = 0; j < 3; j++)
+                    {
+                        GD.LevelLimitations[i + 1, j] = GD.LevelLimitations[i, j];
+                    }
+                    //public int[,,] LevelMaps = new int[201, 101, 101];
+                    for (int j = 0; j < length; j++)
+                    {
+
+                    }
+                }
+
+                textBox1.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Имя уровня не введено");
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {//Удаляем уровень
+
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Если отмечено больше 2 элементов, то снимаем выделение со всех и отмечаем текущий.
+            if (checkedListBox1.CheckedItems.Count > 1)
+            {
+                for (int i = 0; i < checkedListBox1.Items.Count; i++)
+                    checkedListBox1.SetItemChecked(i, false);
+                checkedListBox1.SetItemChecked(checkedListBox1.SelectedIndex, true);
+            }
         }
     }
 
@@ -238,14 +336,15 @@ namespace LevelManager
                 instance = new GameData();
             return instance;
         }
-
+        public string[] LevelNames = new string[201];
+        //Названия карт
         public int QActiveProfiles;
         //Количество активных профилей сохранения
-        public int Money;
-        //Деньге
+        public int[] Money = new int[3];
+        //Деньге каждого профиля
         public int LevelQuantity;
         //Количество уровней
-        public int[,] LevelScore = new int[201, 5];
+        public int[,,] LevelScore = new int[3, 201, 5];
         //0 - мой скор, 1- макс. скор, 2 - бронза, 3 - серебро, 4 - золото
         public int[,] LevelLimitations = new int[201, 2];
         //0 - время, если есть, то количество секунд, 1 - ограничение по начальной длине змеи, если есть, количество блоков
@@ -253,12 +352,12 @@ namespace LevelManager
         //число - номер набора тайлов (сеттинг - поле, лес, горы, лава и пр)
         public int[,,] LevelMaps = new int[201, 101, 101];
         //Карты уровней, считаем что уровней 200, размером 100х100
-        public int[,,,] MemCards = new int[20, 4, 10, 10];
-        //максимальное количество карточек, 4 варианта повернутости карточки, максимальные размеры
+        public int[,,,,] MemCards = new int[3, 20, 4, 10, 10];
+        //профиль, максимальное количество карточек, 4 варианта повернутости карточки, максимальные размеры
         public int[] MemCardsMove = new int[20];
         public int QMemCards;
-        public int[] Bonuses = new int[10];
-        //каждый номер - остаток определенного бонуса в инвентаре, который можно использовать
+        public int[,] Bonuses = new int[3,10];
+        //каждый номер - остаток определенного бонуса в инвентарекаждого профиля, который можно использовать
         public int CrusherLength;
         //длина змеи
         public int[] CrusherStructure = new int[101];
@@ -267,6 +366,7 @@ namespace LevelManager
         {
             GameData GD = GameData.getInstance();
             GameDataSer GDS = new GameDataSer();
+            GDS.LevelNames = GD.LevelNames;
             GDS.Money = GD.Money;
             GDS.QActiveProfiles = GD.QActiveProfiles;
             GDS.LevelQuantity = GD.LevelQuantity;
@@ -297,6 +397,7 @@ namespace LevelManager
             {
                 GDS = (GameDataSer)BF.Deserialize(fs);
             }
+
             GD.Money = GDS.Money;
             GD.QActiveProfiles = GDS.QActiveProfiles;
             GD.LevelQuantity = GDS.LevelQuantity;
@@ -332,13 +433,15 @@ namespace LevelManager
         [Serializable]
         public class GameDataSer
         {
+            public string[] LevelNames = new string[201];
+            //Названия карт
             public int QActiveProfiles;
             //Количество активных профилей сохранения
-            public int Money;
+            public int[] Money = new int [3];
             //Деньге
             public int LevelQuantity;
             //Количество уровней
-            public int[,] LevelScore = new int[201, 5];
+            public int[,,] LevelScore = new int[3, 201, 5];
             //0 - мой скор, 1- макс. скор, 2 - бронза, 3 - серебро, 4 - золото
             public int[,] LevelLimitations = new int[201, 2];
             //0 - время, если есть, то количество секунд, 1 - ограничение по начальной длине змеи, если есть, количество блоков
@@ -346,11 +449,11 @@ namespace LevelManager
             //число - номер набора тайлов (сеттинг - поле, лес, горы, лава и пр)
             public int[,,] LevelMaps = new int[201, 101, 101];
             //Карты уровней, считаем что уровней 200, размером 100х100
-            public int[,,,] MemCards = new int[20, 4, 10, 10];
+            public int[,,,,] MemCards = new int[3, 20, 4, 10, 10];
             public int[] MemCardsMove = new int[20];
             public int QMemCards;
             //максимальное количество карточек, 4 варианта повернутости карточки, максимальные размеры
-            public int[] Bonuses = new int[10];
+            public int[,] Bonuses = new int[3,10];
             //каждый номер - остаток определенного бонуса в инвентаре, который можно использовать
             public int CrusherLength;
             //длина змеи

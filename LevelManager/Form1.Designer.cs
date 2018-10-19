@@ -59,6 +59,11 @@
             this.radioButton10 = new System.Windows.Forms.RadioButton();
             this.radioButton11 = new System.Windows.Forms.RadioButton();
             this.trackBar2 = new System.Windows.Forms.TrackBar();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -97,7 +102,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(13, 442);
+            this.button2.Location = new System.Drawing.Point(13, 500);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(159, 32);
             this.button2.TabIndex = 5;
@@ -137,7 +142,7 @@
             // button3
             // 
             this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button3.Location = new System.Drawing.Point(188, 442);
+            this.button3.Location = new System.Drawing.Point(188, 500);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(176, 32);
             this.button3.TabIndex = 9;
@@ -166,9 +171,9 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(384, 442);
+            this.button4.Location = new System.Drawing.Point(370, 501);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(176, 32);
+            this.button4.Size = new System.Drawing.Size(160, 32);
             this.button4.TabIndex = 10;
             this.button4.Text = "4. Выгрузить";
             this.button4.UseVisualStyleBackColor = true;
@@ -178,7 +183,7 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.ForeColor = System.Drawing.Color.Yellow;
-            this.radioButton1.Location = new System.Drawing.Point(584, 134);
+            this.radioButton1.Location = new System.Drawing.Point(178, 430);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(61, 17);
             this.radioButton1.TabIndex = 11;
@@ -190,7 +195,7 @@
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.radioButton2.Location = new System.Drawing.Point(584, 157);
+            this.radioButton2.Location = new System.Drawing.Point(253, 430);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(111, 17);
             this.radioButton2.TabIndex = 12;
@@ -202,7 +207,7 @@
             // 
             this.radioButton3.AutoSize = true;
             this.radioButton3.ForeColor = System.Drawing.Color.Red;
-            this.radioButton3.Location = new System.Drawing.Point(584, 180);
+            this.radioButton3.Location = new System.Drawing.Point(370, 430);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(111, 17);
             this.radioButton3.TabIndex = 13;
@@ -214,7 +219,7 @@
             // 
             this.radioButton4.AutoSize = true;
             this.radioButton4.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.radioButton4.Location = new System.Drawing.Point(584, 203);
+            this.radioButton4.Location = new System.Drawing.Point(487, 430);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(64, 17);
             this.radioButton4.TabIndex = 14;
@@ -242,7 +247,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(703, 443);
+            this.button5.Location = new System.Drawing.Point(703, 501);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(124, 32);
             this.button5.TabIndex = 18;
@@ -251,16 +256,17 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(844, 443);
+            this.button6.Location = new System.Drawing.Point(844, 501);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(124, 32);
             this.button6.TabIndex = 19;
             this.button6.Text = "Загрузить в файл";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(974, 443);
+            this.button7.Location = new System.Drawing.Point(974, 501);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(215, 32);
             this.button7.TabIndex = 20;
@@ -278,16 +284,17 @@
             "3"});
             this.checkedListBox1.Location = new System.Drawing.Point(584, 24);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(199, 94);
+            this.checkedListBox1.Size = new System.Drawing.Size(175, 154);
             this.checkedListBox1.TabIndex = 21;
+            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(573, 443);
+            this.button8.Location = new System.Drawing.Point(536, 501);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(124, 32);
+            this.button8.Size = new System.Drawing.Size(161, 32);
             this.button8.TabIndex = 22;
-            this.button8.Text = "Загрузить файл карт";
+            this.button8.Text = "Загрузить карты из файла";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
@@ -295,7 +302,7 @@
             // 
             this.radioButton5.AutoSize = true;
             this.radioButton5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.radioButton5.Location = new System.Drawing.Point(584, 226);
+            this.radioButton5.Location = new System.Drawing.Point(178, 453);
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.Size = new System.Drawing.Size(49, 17);
             this.radioButton5.TabIndex = 23;
@@ -307,7 +314,7 @@
             // 
             this.radioButton6.AutoSize = true;
             this.radioButton6.ForeColor = System.Drawing.Color.Lime;
-            this.radioButton6.Location = new System.Drawing.Point(584, 249);
+            this.radioButton6.Location = new System.Drawing.Point(233, 453);
             this.radioButton6.Name = "radioButton6";
             this.radioButton6.Size = new System.Drawing.Size(57, 17);
             this.radioButton6.TabIndex = 24;
@@ -319,7 +326,7 @@
             // 
             this.radioButton7.AutoSize = true;
             this.radioButton7.ForeColor = System.Drawing.Color.Aqua;
-            this.radioButton7.Location = new System.Drawing.Point(584, 272);
+            this.radioButton7.Location = new System.Drawing.Point(296, 453);
             this.radioButton7.Name = "radioButton7";
             this.radioButton7.Size = new System.Drawing.Size(50, 17);
             this.radioButton7.TabIndex = 25;
@@ -331,7 +338,7 @@
             // 
             this.radioButton8.AutoSize = true;
             this.radioButton8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.radioButton8.Location = new System.Drawing.Point(584, 295);
+            this.radioButton8.Location = new System.Drawing.Point(352, 453);
             this.radioButton8.Name = "radioButton8";
             this.radioButton8.Size = new System.Drawing.Size(101, 17);
             this.radioButton8.TabIndex = 26;
@@ -343,7 +350,7 @@
             // 
             this.radioButton9.AutoSize = true;
             this.radioButton9.ForeColor = System.Drawing.Color.Green;
-            this.radioButton9.Location = new System.Drawing.Point(585, 318);
+            this.radioButton9.Location = new System.Drawing.Point(459, 453);
             this.radioButton9.Name = "radioButton9";
             this.radioButton9.Size = new System.Drawing.Size(115, 17);
             this.radioButton9.TabIndex = 27;
@@ -355,7 +362,7 @@
             // 
             this.radioButton10.AutoSize = true;
             this.radioButton10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.radioButton10.Location = new System.Drawing.Point(585, 341);
+            this.radioButton10.Location = new System.Drawing.Point(178, 476);
             this.radioButton10.Name = "radioButton10";
             this.radioButton10.Size = new System.Drawing.Size(192, 17);
             this.radioButton10.TabIndex = 28;
@@ -367,7 +374,7 @@
             // 
             this.radioButton11.AutoSize = true;
             this.radioButton11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.radioButton11.Location = new System.Drawing.Point(584, 364);
+            this.radioButton11.Location = new System.Drawing.Point(376, 478);
             this.radioButton11.Name = "radioButton11";
             this.radioButton11.Size = new System.Drawing.Size(200, 17);
             this.radioButton11.TabIndex = 29;
@@ -378,19 +385,69 @@
             // trackBar2
             // 
             this.trackBar2.BackColor = System.Drawing.SystemColors.Control;
-            this.trackBar2.Location = new System.Drawing.Point(585, 387);
+            this.trackBar2.Location = new System.Drawing.Point(585, 448);
             this.trackBar2.Maximum = 3;
             this.trackBar2.Name = "trackBar2";
             this.trackBar2.Size = new System.Drawing.Size(198, 45);
             this.trackBar2.TabIndex = 30;
             this.trackBar2.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(584, 193);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(94, 20);
+            this.textBox1.TabIndex = 31;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(584, 8);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(88, 13);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "Список уровней";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(584, 179);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 13);
+            this.label6.TabIndex = 33;
+            this.label6.Text = "Название";
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(584, 219);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(99, 23);
+            this.button9.TabIndex = 34;
+            this.button9.Text = "Добавить выше";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(689, 219);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(75, 23);
+            this.button10.TabIndex = 35;
+            this.button10.Text = "Удалить";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(1201, 487);
+            this.ClientSize = new System.Drawing.Size(1201, 545);
+            this.Controls.Add(this.button10);
+            this.Controls.Add(this.button9);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.trackBar2);
             this.Controls.Add(this.radioButton11);
             this.Controls.Add(this.radioButton10);
@@ -423,6 +480,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
             this.Text = "Level manager";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -467,6 +525,11 @@
         private System.Windows.Forms.RadioButton radioButton10;
         private System.Windows.Forms.RadioButton radioButton11;
         private System.Windows.Forms.TrackBar trackBar2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
     }
 }
 
