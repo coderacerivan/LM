@@ -132,7 +132,7 @@ namespace LevelManager
                     {
                         ((Bitmap)pictureBox3.Image).SetPixel(Convert.ToInt32(e.X / kx) - 1 + i, Convert.ToInt32(e.Y / ky) - 1 + j, pnt);
                     }
-                }               
+                }
             }
             if (trackBar2.Value == 2)
             {
@@ -197,12 +197,12 @@ namespace LevelManager
                     }
                 }
             }
-            MessageBox.Show("Эта карта содержит:\nЗолота: "+yel+ "\nУскорителей: " + blu + "\nАгрессии: " + red +"\nКамней: "+gra + "\nБелоты: " + whi + "\nЧерноты: " + bla);
+            MessageBox.Show("Эта карта содержит:\nЗолота: " + yel + "\nУскорителей: " + blu + "\nАгрессии: " + red + "\nКамней: " + gra + "\nБелоты: " + whi + "\nЧерноты: " + bla);
         }
 
         private void button8_Click(object sender, EventArgs e)
         {//Загружаем файл карт
-            GameData GD = GameData.getInstance();          
+            GameData GD = GameData.getInstance();
             checkedListBox1.Items.Clear();
             if (File.Exists("GameData"))
             {
@@ -218,7 +218,7 @@ namespace LevelManager
                         else
                         {
                             checkedListBox1.Items.Add("Уровень " + i + 1);
-                        }                        
+                        }
 
                     }
                 }
@@ -229,7 +229,7 @@ namespace LevelManager
             }
             else
             {
-                if (MessageBox.Show("Создать новый файл?","Файл GameData не найден",MessageBoxButtons.YesNo) == DialogResult.Yes )
+                if (MessageBox.Show("Создать новый файл?", "Файл GameData не найден", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     GD.Bonuses.Initialize();
                     GD.CrusherLength = 100;
@@ -247,7 +247,7 @@ namespace LevelManager
                     GD.LevelNames.Initialize();
                 }
             }
-            
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -267,7 +267,7 @@ namespace LevelManager
             {
                 GameData GD = GameData.getInstance();
                 int AddedLevel = Convert.ToInt32(checkedListBox1.CheckedItems[1].ToString().Last());//Номер уровня, который хотим добавить
-                for (int i = GD.LevelQuantity-1; i < AddedLevel-1; i--)
+                for (int i = GD.LevelQuantity - 1; i < AddedLevel - 1; i--)
                 {
                     GD.LevelNames[i + 1] = GD.LevelNames[i];
                     for (int j = 0; j < 3; j++)
@@ -275,10 +275,35 @@ namespace LevelManager
                         GD.LevelLimitations[i + 1, j] = GD.LevelLimitations[i, j];
                     }
                     //public int[,,] LevelMaps = new int[201, 101, 101];
-                    for (int j = 0; j < length; j++)
+                    for (int j = 0; j < 201; j++)
                     {
-
+                        for (int a = 0; a < 101; a++)
+                        {
+                            for (int b = 0; b < 101; b++)
+                            {
+                                GD.LevelMaps[j + 1, a, b] = GD.LevelMaps[j, a, b];
+                            }
+                        }
                     }
+                    //public int[,,] LevelScore = new int[3, 201, 5];
+                    for (int j = 0; j < 3; j++)
+                    {
+                        for (int a = 0; a < 201; a++)
+                        {
+                            for (int b = 0; b < 5; b++)
+                            {
+                                GD.LevelScore[j, a + 1, b] = GD.LevelScore[j, a, b];
+                            }
+                        }
+                    }
+                    GD.LevelSetting[i + 1] = GD.LevelSetting[i];                    
+                }
+
+                //Создаем новый уровень
+                GD.LevelNames[AddedLevel] = textBox1.Text;                
+                    for (int j = 0; j < 3; j++)
+                {
+                    GD.LevelLimitations[AddedLevel, j] = 0;
                 }
 
                 textBox1.Text = "";
@@ -356,7 +381,7 @@ namespace LevelManager
         //профиль, максимальное количество карточек, 4 варианта повернутости карточки, максимальные размеры
         public int[] MemCardsMove = new int[20];
         public int QMemCards;
-        public int[,] Bonuses = new int[3,10];
+        public int[,] Bonuses = new int[3, 10];
         //каждый номер - остаток определенного бонуса в инвентарекаждого профиля, который можно использовать
         public int CrusherLength;
         //длина змеи
@@ -437,7 +462,7 @@ namespace LevelManager
             //Названия карт
             public int QActiveProfiles;
             //Количество активных профилей сохранения
-            public int[] Money = new int [3];
+            public int[] Money = new int[3];
             //Деньге
             public int LevelQuantity;
             //Количество уровней
@@ -453,7 +478,7 @@ namespace LevelManager
             public int[] MemCardsMove = new int[20];
             public int QMemCards;
             //максимальное количество карточек, 4 варианта повернутости карточки, максимальные размеры
-            public int[,] Bonuses = new int[3,10];
+            public int[,] Bonuses = new int[3, 10];
             //каждый номер - остаток определенного бонуса в инвентаре, который можно использовать
             public int CrusherLength;
             //длина змеи
