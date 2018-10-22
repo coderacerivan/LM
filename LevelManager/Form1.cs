@@ -300,12 +300,23 @@ namespace LevelManager
                 }
 
                 //Создаем новый уровень
-                GD.LevelNames[AddedLevel] = textBox1.Text;                
-                    for (int j = 0; j < 3; j++)
+                GD.LevelNames[AddedLevel] = textBox1.Text; //название уровня
+                GD.LevelLimitations[AddedLevel, 0] = trackBar3.Value * 30; //если есть - ограничение по времени прохождения уровня
+                GD.LevelLimitations[AddedLevel, 1] = Convert.ToInt32(textBox2.Text); // если есть - ограничение по максимальной начальной длине змеи
+                GD.LevelLimitations[AddedLevel, 2] = trackBar4.Value; //Процент плодовых деревьев среди всей массы деревьев уровня
+                for (int x = 0; x < pictureBox3.Image.Width; x++)
                 {
-                    GD.LevelLimitations[AddedLevel, j] = 0;
+                    for (int y = 0; y < pictureBox3.Image.Height; y++)
+                    {
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Yellow.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Yellow.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Yellow.B)
+                        {
+                            GD.LevelMaps[AddedLevel, x, y] = 1;//************************************************РЫБА*******************************************************
+                        }
+                       
+                        
+                    }
                 }
-
+                    
                 textBox1.Text = "";
             }
             else
@@ -328,6 +339,11 @@ namespace LevelManager
                     checkedListBox1.SetItemChecked(i, false);
                 checkedListBox1.SetItemChecked(checkedListBox1.SelectedIndex, true);
             }
+        }
+
+        private void trackBar3_Scroll(object sender, EventArgs e)
+        {
+            label7.Text = "Ограничение по времени " + trackBar3.Value * 30 + " с.";            
         }
     }
 
