@@ -143,7 +143,7 @@
             this.trackBar1.Location = new System.Drawing.Point(13, 391);
             this.trackBar1.Maximum = 255;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(155, 45);
+            this.trackBar1.Size = new System.Drawing.Size(155, 42);
             this.trackBar1.TabIndex = 6;
             this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trackBar1.Value = 127;
@@ -397,7 +397,7 @@
             this.trackBar2.Location = new System.Drawing.Point(585, 448);
             this.trackBar2.Maximum = 3;
             this.trackBar2.Name = "trackBar2";
-            this.trackBar2.Size = new System.Drawing.Size(198, 45);
+            this.trackBar2.Size = new System.Drawing.Size(198, 42);
             this.trackBar2.TabIndex = 30;
             this.trackBar2.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             // 
@@ -469,7 +469,7 @@
             this.trackBar3.BackColor = System.Drawing.SystemColors.Control;
             this.trackBar3.Location = new System.Drawing.Point(584, 379);
             this.trackBar3.Name = "trackBar3";
-            this.trackBar3.Size = new System.Drawing.Size(198, 45);
+            this.trackBar3.Size = new System.Drawing.Size(198, 42);
             this.trackBar3.TabIndex = 37;
             this.trackBar3.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trackBar3.Scroll += new System.EventHandler(this.trackBar3_Scroll);
@@ -506,7 +506,7 @@
             this.trackBar4.Location = new System.Drawing.Point(583, 274);
             this.trackBar4.Maximum = 100;
             this.trackBar4.Name = "trackBar4";
-            this.trackBar4.Size = new System.Drawing.Size(198, 45);
+            this.trackBar4.Size = new System.Drawing.Size(198, 42);
             this.trackBar4.TabIndex = 41;
             this.trackBar4.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trackBar4.Value = 25;
@@ -515,7 +515,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1201, 545);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.trackBar4);

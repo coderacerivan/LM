@@ -308,15 +308,78 @@ namespace LevelManager
                 {
                     for (int y = 0; y < pictureBox3.Image.Height; y++)
                     {
+                        //+    0  - трава
+                        //+    1  - бордюр
+                        //+    2  - камень
+                        //+    3  - дерево
+                        //+    4  - золото
+                        //+    5  - бонус скорость
+                        //+    6  - бонус агрессия
+                        //+    7  - вода
+                        //+    8  - стационарный ускоритель вход
+                        //+    9  - стационарный ускоритель выход
+                        //+    89 - старт для неписей
+                        //+    90 - старт
+                        //+    91 - финиш
+                        //    97 - хвост
+                        //    98 - тело
+                        //    99 - башка
                         if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Yellow.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Yellow.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Yellow.B)
-                        {
-                            GD.LevelMaps[AddedLevel, x, y] = 1;//************************************************РЫБА*******************************************************
+                        {                            
+                            GD.LevelMaps[AddedLevel, x, y] = 4;
                         }
-                       
-                        
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Gray.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Gray.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Gray.B)
+                        {
+                            GD.LevelMaps[AddedLevel, x, y] = 2;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Red.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Red.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Red.B)
+                        {
+                            GD.LevelMaps[AddedLevel, x, y] = 6;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Blue.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Blue.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Blue.B)
+                        {
+                            GD.LevelMaps[AddedLevel, x, y] = 5;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Black.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Black.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Black.B)
+                        {
+                            GD.LevelMaps[AddedLevel, x, y] = 3;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.White.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.White.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.White.B)
+                        {
+                            GD.LevelMaps[AddedLevel, x, y] = 0;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == 128 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == 255 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == 128)
+                        {
+                            GD.LevelMaps[AddedLevel, x, y] = 90;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Lime.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Lime.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Lime.B)
+                        {
+                            GD.LevelMaps[AddedLevel, x, y] = 91;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Aqua.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Aqua.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Aqua.B)
+                        {
+                            GD.LevelMaps[AddedLevel, x, y] = 7;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == 0 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == 64 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == 0)
+                        {
+                            GD.LevelMaps[AddedLevel, x, y] = 1;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Green.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Green.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Green.B)
+                        {
+                            GD.LevelMaps[AddedLevel, x, y] = 89;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == 255 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == 128 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == 0)
+                        {
+                            GD.LevelMaps[AddedLevel, x, y] = 8;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == 192 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == 64 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == 0)
+                        {
+                            GD.LevelMaps[AddedLevel, x, y] = 9;
+                        }
                     }
                 }
-                    
+                
+                   
                 textBox1.Text = "";
             }
             else
