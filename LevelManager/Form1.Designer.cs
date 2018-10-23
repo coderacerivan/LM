@@ -71,6 +71,16 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.trackBar4 = new System.Windows.Forms.TrackBar();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -111,7 +121,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(13, 500);
+            this.button2.Location = new System.Drawing.Point(13, 522);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(159, 32);
             this.button2.TabIndex = 5;
@@ -143,7 +153,7 @@
             this.trackBar1.Location = new System.Drawing.Point(13, 391);
             this.trackBar1.Maximum = 255;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(155, 42);
+            this.trackBar1.Size = new System.Drawing.Size(155, 45);
             this.trackBar1.TabIndex = 6;
             this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trackBar1.Value = 127;
@@ -151,7 +161,7 @@
             // button3
             // 
             this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button3.Location = new System.Drawing.Point(188, 500);
+            this.button3.Location = new System.Drawing.Point(188, 522);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(176, 32);
             this.button3.TabIndex = 9;
@@ -180,7 +190,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(370, 501);
+            this.button4.Location = new System.Drawing.Point(370, 523);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(160, 32);
             this.button4.TabIndex = 10;
@@ -256,7 +266,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(703, 501);
+            this.button5.Location = new System.Drawing.Point(703, 523);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(124, 32);
             this.button5.TabIndex = 18;
@@ -265,7 +275,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(844, 501);
+            this.button6.Location = new System.Drawing.Point(844, 523);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(124, 32);
             this.button6.TabIndex = 19;
@@ -275,7 +285,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(974, 501);
+            this.button7.Location = new System.Drawing.Point(974, 523);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(215, 32);
             this.button7.TabIndex = 20;
@@ -299,7 +309,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(536, 501);
+            this.button8.Location = new System.Drawing.Point(536, 523);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(161, 32);
             this.button8.TabIndex = 22;
@@ -397,7 +407,7 @@
             this.trackBar2.Location = new System.Drawing.Point(585, 448);
             this.trackBar2.Maximum = 3;
             this.trackBar2.Name = "trackBar2";
-            this.trackBar2.Size = new System.Drawing.Size(198, 42);
+            this.trackBar2.Size = new System.Drawing.Size(198, 45);
             this.trackBar2.TabIndex = 30;
             this.trackBar2.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             // 
@@ -469,7 +479,7 @@
             this.trackBar3.BackColor = System.Drawing.SystemColors.Control;
             this.trackBar3.Location = new System.Drawing.Point(584, 379);
             this.trackBar3.Name = "trackBar3";
-            this.trackBar3.Size = new System.Drawing.Size(198, 42);
+            this.trackBar3.Size = new System.Drawing.Size(198, 45);
             this.trackBar3.TabIndex = 37;
             this.trackBar3.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trackBar3.Scroll += new System.EventHandler(this.trackBar3_Scroll);
@@ -506,17 +516,117 @@
             this.trackBar4.Location = new System.Drawing.Point(583, 274);
             this.trackBar4.Maximum = 100;
             this.trackBar4.Name = "trackBar4";
-            this.trackBar4.Size = new System.Drawing.Size(198, 42);
+            this.trackBar4.Size = new System.Drawing.Size(198, 45);
             this.trackBar4.TabIndex = 41;
             this.trackBar4.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trackBar4.Value = 25;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(789, 439);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(44, 13);
+            this.label11.TabIndex = 44;
+            this.label11.Text = "Бронза";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(789, 453);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(94, 20);
+            this.textBox3.TabIndex = 43;
+            this.textBox3.Text = "0";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(889, 439);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(50, 13);
+            this.label12.TabIndex = 46;
+            this.label12.Text = "Серебро";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(889, 453);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(94, 20);
+            this.textBox4.TabIndex = 45;
+            this.textBox4.Text = "0";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(989, 439);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(43, 13);
+            this.label13.TabIndex = 48;
+            this.label13.Text = "Золото";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(989, 453);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(94, 20);
+            this.textBox5.TabIndex = 47;
+            this.textBox5.Text = "0";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(1089, 439);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(27, 13);
+            this.label14.TabIndex = 50;
+            this.label14.Text = "Max";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(1089, 453);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(94, 20);
+            this.textBox6.TabIndex = 49;
+            this.textBox6.Text = "0";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Items.AddRange(new object[] {
+            "Лес 1",
+            "Поле 2",
+            "Горы 3",
+            "Лава 4"});
+            this.comboBox1.Location = new System.Drawing.Point(789, 496);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 51;
+            this.comboBox1.Text = "Лес 1";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(789, 476);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(47, 13);
+            this.label15.TabIndex = 52;
+            this.label15.Text = "Сеттинг";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1201, 545);
+            this.ClientSize = new System.Drawing.Size(1201, 567);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.trackBar4);
             this.Controls.Add(this.label9);
@@ -620,6 +730,16 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TrackBar trackBar4;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label15;
     }
 }
 

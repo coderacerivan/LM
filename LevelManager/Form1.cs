@@ -378,8 +378,18 @@ namespace LevelManager
                         }
                     }
                 }
+                for (int scor = 0; scor < 3; scor++)
+                {
+                    GD.LevelScore[scor, AddedLevel, 0] = 0;
+                    GD.LevelScore[scor, AddedLevel, 1] = Convert.ToInt32(textBox6.Text);
+                    GD.LevelScore[scor, AddedLevel, 2] = Convert.ToInt32(textBox3.Text);
+                    GD.LevelScore[scor, AddedLevel, 3] = Convert.ToInt32(textBox4.Text);
+                    GD.LevelScore[scor, AddedLevel, 4] = Convert.ToInt32(textBox5.Text);
+                }
                 
-                   
+                GD.LevelSetting[AddedLevel] = Convert.ToInt32(comboBox1.Text.ToString().Last());
+                GD.LevelQuantity++;
+                GD.SaveGame();
                 textBox1.Text = "";
             }
             else
