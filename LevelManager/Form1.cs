@@ -400,7 +400,42 @@ namespace LevelManager
 
         private void button10_Click(object sender, EventArgs e)
         {//Удаляем уровень
-
+            GameData GD = GameData.getInstance();
+            int RemovedLevel = checkedListBox1.SelectedIndex;
+            if (RemovedLevel != GD.LevelQuantity-1)
+            {
+                for (int i = RemovedLevel; i < GD.LevelQuantity - 1; i++)
+                {
+                    GD.LevelNames[i] = GD.LevelNames[i+1];
+                    for (int j = 0; j < 3; j++)
+                    {
+                        GD.LevelLimitations[i, j] = GD.LevelLimitations[i+1, j];
+                    }
+                    //public int[,,] LevelMaps = new int[201, 101, 101];
+                    
+                        for (int a = 0; a < 101; a++)
+                        {
+                            for (int b = 0; b < 101; b++)
+                            {
+                                GD.LevelMaps[i, a, b] = GD.LevelMaps[i+1, a, b];
+                            }
+                        }
+                    
+                    //public int[,,] LevelScore = new int[3, 201, 5];
+                    for (int j = 0; j < 3; j++)
+                    {
+                        
+                            for (int b = 0; b < 5; b++)
+                            {
+                                GD.LevelScore[j, i, b] = GD.LevelScore[j, i+1, b];
+                            }
+                        
+                    }
+                    GD.LevelSetting[i] = GD.LevelSetting[i+1];
+                }
+            }
+            GD.LevelQuantity--;
+            GD.SaveGame();
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -416,7 +451,118 @@ namespace LevelManager
 
         private void trackBar3_Scroll(object sender, EventArgs e)
         {
-            label7.Text = "Ограничение по времени " + trackBar3.Value * 30 + " с.";            
+            label8.Text = "Ограничение по времени " + trackBar3.Value * 30 + " с.";            
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {//Создать уровень в конце
+            if (textBox1.Text != "")
+            {
+                GameData GD = GameData.getInstance();
+                int AddedLevel = GD.LevelQuantity;//Номер уровня, который хотим добавить
+                
+                //Создаем новый уровень
+                GD.LevelNames[AddedLevel] = textBox1.Text; //название уровня
+                GD.LevelLimitations[AddedLevel, 0] = trackBar3.Value * 30; //если есть - ограничение по времени прохождения уровня
+                GD.LevelLimitations[AddedLevel, 1] = Convert.ToInt32(textBox2.Text); // если есть - ограничение по максимальной начальной длине змеи
+                GD.LevelLimitations[AddedLevel, 2] = trackBar4.Value; //Процент плодовых деревьев среди всей массы деревьев уровня
+                for (int x = 0; x < pictureBox3.Image.Width; x++)
+                {
+                    for (int y = 0; y < pictureBox3.Image.Height; y++)
+                    {
+                        //+    0  - трава
+                        //+    1  - бордюр
+                        //+    2  - камень
+                        //+    3  - дерево
+                        //+    4  - золото
+                        //+    5  - бонус скорость
+                        //+    6  - бонус агрессия
+                        //+    7  - вода
+                        //+    8  - стационарный ускоритель вход
+                        //+    9  - стационарный ускоритель выход
+                        //+    89 - старт для неписей
+                        //+    90 - старт
+                        //+    91 - финиш
+                        //    97 - хвост
+                        //    98 - тело
+                        //    99 - башка
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Yellow.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Yellow.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Yellow.B)
+                        {
+                            GD.LevelMaps[AddedLevel, x, y] = 4;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Gray.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Gray.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Gray.B)
+                        {
+                            GD.LevelMaps[AddedLevel, x, y] = 2;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Red.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Red.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Red.B)
+                        {
+                            GD.LevelMaps[AddedLevel, x, y] = 6;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Blue.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Blue.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Blue.B)
+                        {
+                            GD.LevelMaps[AddedLevel, x, y] = 5;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Black.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Black.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Black.B)
+                        {
+                            GD.LevelMaps[AddedLevel, x, y] = 3;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.White.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.White.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.White.B)
+                        {
+                            GD.LevelMaps[AddedLevel, x, y] = 0;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == 128 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == 255 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == 128)
+                        {
+                            GD.LevelMaps[AddedLevel, x, y] = 90;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Lime.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Lime.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Lime.B)
+                        {
+                            GD.LevelMaps[AddedLevel, x, y] = 91;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Aqua.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Aqua.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Aqua.B)
+                        {
+                            GD.LevelMaps[AddedLevel, x, y] = 7;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == 0 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == 64 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == 0)
+                        {
+                            GD.LevelMaps[AddedLevel, x, y] = 1;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Green.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Green.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Green.B)
+                        {
+                            GD.LevelMaps[AddedLevel, x, y] = 89;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == 255 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == 128 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == 0)
+                        {
+                            GD.LevelMaps[AddedLevel, x, y] = 8;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == 192 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == 64 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == 0)
+                        {
+                            GD.LevelMaps[AddedLevel, x, y] = 9;
+                        }
+                    }
+                }
+                for (int scor = 0; scor < 3; scor++)
+                {
+                    GD.LevelScore[scor, AddedLevel, 0] = 0;
+                    GD.LevelScore[scor, AddedLevel, 1] = Convert.ToInt32(textBox6.Text);
+                    GD.LevelScore[scor, AddedLevel, 2] = Convert.ToInt32(textBox3.Text);
+                    GD.LevelScore[scor, AddedLevel, 3] = Convert.ToInt32(textBox4.Text);
+                    GD.LevelScore[scor, AddedLevel, 4] = Convert.ToInt32(textBox5.Text);
+                }
+
+                GD.LevelSetting[AddedLevel] = Convert.ToInt32(comboBox1.Text.ToString().Last());
+                GD.LevelQuantity++;
+                GD.SaveGame();
+                textBox1.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Имя уровня не введено");
+            }
+        }
+
+        private void trackBar4_Scroll(object sender, EventArgs e)
+        {
+            label10.Text = "Процент плодовых деревьев " + trackBar4.Value + "%";
         }
     }
 

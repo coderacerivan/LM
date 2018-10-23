@@ -81,6 +81,7 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.button11 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -404,7 +405,7 @@
             // trackBar2
             // 
             this.trackBar2.BackColor = System.Drawing.SystemColors.Control;
-            this.trackBar2.Location = new System.Drawing.Point(585, 448);
+            this.trackBar2.Location = new System.Drawing.Point(586, 467);
             this.trackBar2.Maximum = 3;
             this.trackBar2.Name = "trackBar2";
             this.trackBar2.Size = new System.Drawing.Size(198, 45);
@@ -459,7 +460,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(584, 430);
+            this.label7.Location = new System.Drawing.Point(585, 449);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(78, 13);
             this.label7.TabIndex = 36;
@@ -468,7 +469,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(583, 361);
+            this.label8.Location = new System.Drawing.Point(584, 380);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(135, 13);
             this.label8.TabIndex = 38;
@@ -477,7 +478,7 @@
             // trackBar3
             // 
             this.trackBar3.BackColor = System.Drawing.SystemColors.Control;
-            this.trackBar3.Location = new System.Drawing.Point(584, 379);
+            this.trackBar3.Location = new System.Drawing.Point(585, 398);
             this.trackBar3.Name = "trackBar3";
             this.trackBar3.Size = new System.Drawing.Size(198, 45);
             this.trackBar3.TabIndex = 37;
@@ -486,7 +487,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(583, 338);
+            this.textBox2.Location = new System.Drawing.Point(584, 357);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(199, 20);
             this.textBox2.TabIndex = 39;
@@ -495,7 +496,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(581, 322);
+            this.label9.Location = new System.Drawing.Point(582, 341);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(206, 13);
             this.label9.TabIndex = 40;
@@ -504,7 +505,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(582, 256);
+            this.label10.Location = new System.Drawing.Point(583, 275);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(153, 13);
             this.label10.TabIndex = 42;
@@ -513,13 +514,14 @@
             // trackBar4
             // 
             this.trackBar4.BackColor = System.Drawing.SystemColors.Control;
-            this.trackBar4.Location = new System.Drawing.Point(583, 274);
+            this.trackBar4.Location = new System.Drawing.Point(584, 293);
             this.trackBar4.Maximum = 100;
             this.trackBar4.Name = "trackBar4";
             this.trackBar4.Size = new System.Drawing.Size(198, 45);
             this.trackBar4.TabIndex = 41;
             this.trackBar4.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trackBar4.Value = 25;
+            this.trackBar4.Scroll += new System.EventHandler(this.trackBar4_Scroll);
             // 
             // label11
             // 
@@ -611,12 +613,23 @@
             this.label15.TabIndex = 52;
             this.label15.Text = "Сеттинг";
             // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(585, 249);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(112, 23);
+            this.button11.TabIndex = 53;
+            this.button11.Text = "Добавить в конец";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1201, 567);
+            this.Controls.Add(this.button11);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label14);
@@ -740,6 +753,7 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button button11;
     }
 }
 
