@@ -82,6 +82,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.button11 = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -122,7 +123,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(13, 522);
+            this.button2.Location = new System.Drawing.Point(9, 441);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(159, 32);
             this.button2.TabIndex = 5;
@@ -151,10 +152,10 @@
             // trackBar1
             // 
             this.trackBar1.BackColor = System.Drawing.SystemColors.Control;
-            this.trackBar1.Location = new System.Drawing.Point(13, 391);
+            this.trackBar1.Location = new System.Drawing.Point(13, 410);
             this.trackBar1.Maximum = 255;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(155, 45);
+            this.trackBar1.Size = new System.Drawing.Size(155, 42);
             this.trackBar1.TabIndex = 6;
             this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trackBar1.Value = 127;
@@ -408,7 +409,7 @@
             this.trackBar2.Location = new System.Drawing.Point(586, 467);
             this.trackBar2.Maximum = 3;
             this.trackBar2.Name = "trackBar2";
-            this.trackBar2.Size = new System.Drawing.Size(198, 45);
+            this.trackBar2.Size = new System.Drawing.Size(198, 42);
             this.trackBar2.TabIndex = 30;
             this.trackBar2.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             // 
@@ -480,7 +481,7 @@
             this.trackBar3.BackColor = System.Drawing.SystemColors.Control;
             this.trackBar3.Location = new System.Drawing.Point(585, 398);
             this.trackBar3.Name = "trackBar3";
-            this.trackBar3.Size = new System.Drawing.Size(198, 45);
+            this.trackBar3.Size = new System.Drawing.Size(198, 42);
             this.trackBar3.TabIndex = 37;
             this.trackBar3.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trackBar3.Scroll += new System.EventHandler(this.trackBar3_Scroll);
@@ -517,7 +518,7 @@
             this.trackBar4.Location = new System.Drawing.Point(584, 293);
             this.trackBar4.Maximum = 100;
             this.trackBar4.Name = "trackBar4";
-            this.trackBar4.Size = new System.Drawing.Size(198, 45);
+            this.trackBar4.Size = new System.Drawing.Size(198, 42);
             this.trackBar4.TabIndex = 41;
             this.trackBar4.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trackBar4.Value = 25;
@@ -623,12 +624,22 @@
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(13, 394);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(81, 13);
+            this.label16.TabIndex = 54;
+            this.label16.Text = "Порог черного";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1201, 567);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.comboBox1);
@@ -754,6 +765,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Label label16;
     }
 }
 
