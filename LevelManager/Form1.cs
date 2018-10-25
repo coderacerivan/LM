@@ -296,7 +296,7 @@ namespace LevelManager
                             }
                         }
                     }
-                    GD.LevelSetting[i + 1] = GD.LevelSetting[i];                    
+                    GD.LevelSetting[i + 1] = GD.LevelSetting[i];
                 }
 
                 //Создаем новый уровень
@@ -325,7 +325,7 @@ namespace LevelManager
                         //    98 - тело
                         //    99 - башка
                         if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Yellow.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Yellow.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Yellow.B)
-                        {                            
+                        {
                             GD.LevelMaps[AddedLevel, x, y] = 4;
                         }
                         if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Gray.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Gray.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Gray.B)
@@ -386,7 +386,7 @@ namespace LevelManager
                     GD.LevelScore[scor, AddedLevel, 3] = Convert.ToInt32(textBox4.Text);
                     GD.LevelScore[scor, AddedLevel, 4] = Convert.ToInt32(textBox5.Text);
                 }
-                
+
                 GD.LevelSetting[AddedLevel] = Convert.ToInt32(comboBox1.Text.ToString().Last());
                 GD.LevelQuantity++;
                 GD.SaveGame();
@@ -402,36 +402,36 @@ namespace LevelManager
         {//Удаляем уровень
             GameData GD = GameData.getInstance();
             int RemovedLevel = checkedListBox1.SelectedIndex;
-            if (RemovedLevel != GD.LevelQuantity-1)
+            if (RemovedLevel != GD.LevelQuantity - 1)
             {
                 for (int i = RemovedLevel; i < GD.LevelQuantity - 1; i++)
                 {
-                    GD.LevelNames[i] = GD.LevelNames[i+1];
+                    GD.LevelNames[i] = GD.LevelNames[i + 1];
                     for (int j = 0; j < 3; j++)
                     {
-                        GD.LevelLimitations[i, j] = GD.LevelLimitations[i+1, j];
+                        GD.LevelLimitations[i, j] = GD.LevelLimitations[i + 1, j];
                     }
                     //public int[,,] LevelMaps = new int[201, 101, 101];
-                    
-                        for (int a = 0; a < 101; a++)
+
+                    for (int a = 0; a < 101; a++)
+                    {
+                        for (int b = 0; b < 101; b++)
                         {
-                            for (int b = 0; b < 101; b++)
-                            {
-                                GD.LevelMaps[i, a, b] = GD.LevelMaps[i+1, a, b];
-                            }
+                            GD.LevelMaps[i, a, b] = GD.LevelMaps[i + 1, a, b];
                         }
-                    
+                    }
+
                     //public int[,,] LevelScore = new int[3, 201, 5];
                     for (int j = 0; j < 3; j++)
                     {
-                        
-                            for (int b = 0; b < 5; b++)
-                            {
-                                GD.LevelScore[j, i, b] = GD.LevelScore[j, i+1, b];
-                            }
-                        
+
+                        for (int b = 0; b < 5; b++)
+                        {
+                            GD.LevelScore[j, i, b] = GD.LevelScore[j, i + 1, b];
+                        }
+
                     }
-                    GD.LevelSetting[i] = GD.LevelSetting[i+1];
+                    GD.LevelSetting[i] = GD.LevelSetting[i + 1];
                 }
             }
             GD.LevelQuantity--;
@@ -451,7 +451,7 @@ namespace LevelManager
 
         private void trackBar3_Scroll(object sender, EventArgs e)
         {
-            label8.Text = "Ограничение по времени " + trackBar3.Value * 30 + " с.";            
+            label8.Text = "Ограничение по времени " + trackBar3.Value * 30 + " с.";
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -460,7 +460,7 @@ namespace LevelManager
             {
                 GameData GD = GameData.getInstance();
                 int AddedLevel = GD.LevelQuantity;//Номер уровня, который хотим добавить
-                
+
                 //Создаем новый уровень
                 GD.LevelNames[AddedLevel] = textBox1.Text; //название уровня
                 GD.LevelLimitations[AddedLevel, 0] = trackBar3.Value * 30; //если есть - ограничение по времени прохождения уровня
@@ -563,6 +563,82 @@ namespace LevelManager
         private void trackBar4_Scroll(object sender, EventArgs e)
         {
             label10.Text = "Процент плодовых деревьев " + trackBar4.Value + "%";
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {//Показать превью карты
+            GameData GD = GameData.getInstance();
+            int PreviewNumber = checkedListBox1.SelectedIndex;
+            for (int x = 0; x < pictureBox4.Image.Width; x++)
+            {
+                for (int y = 0; y < pictureBox4.Image.Height; y++)
+                {
+                    Color col = new Color();
+                    switch (GD.LevelMaps[PreviewNumber, x, y])
+                    {
+                        //+    0  - трава
+                        case 0:
+                            col = Color.FromArgb(Color.White.R, Color.White.G, Color.White.B);
+                            break;
+                        //+    1  - бордюр
+                        case 1:
+                            col = Color.FromArgb(0, 64, 0);
+                            break;
+                        //+    2  - камень
+                        case 2:
+                            col = Color.FromArgb(Color.Gray.R, Color.Gray.G, Color.Gray.B);
+                            break;
+                        //+    3  - дерево
+                        case 3:
+                            col = Color.FromArgb(Color.Black.R, Color.Black.G, Color.Black.B);
+                            break;
+                        //+    4  - золото
+                        case 4:
+                            col = Color.FromArgb(Color.Yellow.R, Color.Yellow.G, Color.Yellow.B);
+                            break;
+                        //+    5  - бонус скорость
+                        case 5:
+                            col = Color.FromArgb(Color.Blue.R, Color.Blue.G, Color.Blue.B);
+                            break;
+                        //+    6  - бонус агрессия
+                        case 6:
+                            col = Color.FromArgb(Color.Red.R, Color.Red.G, Color.Red.B);
+                            break;
+                        //+    7  - вода
+                        case 7:
+                            col = Color.FromArgb(Color.Aqua.R, Color.Aqua.G, Color.Aqua.B);
+                            break;
+                        //+    8  - стационарный ускоритель вход
+                        case 8:
+                            col = Color.FromArgb(255, 128, 0);
+                            break;
+                        //+    9  - стационарный ускоритель выход
+                        case 9:
+                            col = Color.FromArgb(192, 64, 0);
+                            break;
+                        //+    89 - старт для неписей
+                        case 89:
+                            col = Color.FromArgb(Color.Green.R, Color.Green.G, Color.Green.B);
+                            break;
+                        //+    90 - старт
+                        case 90:
+                            col = Color.FromArgb(128, 255, 128);
+                            break;
+                        //+    91 - финиш
+                        case 91:
+                            col = Color.FromArgb(Color.Lime.R, Color.Lime.G, Color.Lime.B);
+                            break;
+                        default:
+                            col = Color.FromArgb(Color.Black.R, Color.Black.G, Color.Black.B);
+                            break;
+                    }                    
+                    ((Bitmap)pictureBox4.Image).SetPixel(x, y, col);
+
+
+                }
+            }
+
+
         }
     }
 
