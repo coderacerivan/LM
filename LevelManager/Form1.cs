@@ -266,7 +266,7 @@ namespace LevelManager
             if (textBox1.Text != "")
             {
                 GameData GD = GameData.getInstance();
-                int AddedLevel = Convert.ToInt32(checkedListBox1.CheckedItems[1].ToString().Last());//Номер уровня, который хотим добавить
+                int AddedLevel = checkedListBox1.SelectedIndex; ;//Номер уровня, который хотим добавить
                 for (int i = GD.LevelQuantity - 1; i < AddedLevel - 1; i--)
                 {
                     GD.LevelNames[i + 1] = GD.LevelNames[i];
@@ -553,11 +553,16 @@ namespace LevelManager
                 GD.LevelQuantity++;
                 GD.SaveGame();
                 textBox1.Text = "";
+
+                button8_Click(this,new EventArgs());
             }
             else
             {
                 MessageBox.Show("Имя уровня не введено");
             }
+
+
+
         }
 
         private void trackBar4_Scroll(object sender, EventArgs e)
@@ -569,9 +574,12 @@ namespace LevelManager
         {//Показать превью карты
             GameData GD = GameData.getInstance();
             int PreviewNumber = checkedListBox1.SelectedIndex;
-            for (int x = 0; x < pictureBox4.Image.Width; x++)
+            int lenx = GD.LevelMaps.GetLength(1);
+            int leny = GD.LevelMaps.GetLength(2);
+            pictureBox4.Image = new Bitmap(lenx, leny);
+            for (int x = 0; x < lenx; x++)
             {
-                for (int y = 0; y < pictureBox4.Image.Height; y++)
+                for (int y = 0; y < leny; y++)
                 {
                     Color col = new Color();
                     switch (GD.LevelMaps[PreviewNumber, x, y])
@@ -682,7 +690,7 @@ namespace LevelManager
         //Количество уровней
         public int[,,] LevelScore = new int[3, 201, 5];
         //0 - мой скор, 1- макс. скор, 2 - бронза, 3 - серебро, 4 - золото
-        public int[,] LevelLimitations = new int[201, 2];
+        public int[,] LevelLimitations = new int[201, 3];
         //0 - время, если есть, то количество секунд, 1 - ограничение по начальной длине змеи, если есть, количество блоков
         public int[] LevelSetting = new int[201];
         //число - номер набора тайлов (сеттинг - поле, лес, горы, лава и пр)
@@ -740,24 +748,9 @@ namespace LevelManager
             GD.LevelScore = GDS.LevelScore;
             GD.LevelLimitations = GDS.LevelLimitations;
             GD.LevelSetting = GDS.LevelSetting;
+            GD.LevelNames = GDS.LevelNames;
             GD.LevelMaps = GDS.LevelMaps;
-            GD.MemCards = GDS.MemCards;
-            //		for (int i=0;i<20;i++){
-            //			if ((GDS.MemCardsMove [i] != 0) || (GDS.MemCardsMove [i] != 1) || (GDS.MemCardsMove [i] != 2)) {
-            //				GD.MemCardsMove [i] = 1;
-            //			
-            //			} else {
-            //				GD.MemCardsMove[i] = GDS.MemCardsMove[i];
-            //			}
-            //			//GD.MemCardsMove [i] = 1;
-            //			//			for(int j=0;j<101;j++){
-            //			//				for(int k=0;k<101;k++){
-            //			//					if (GD.LevelMaps[i,j,k]!=0){
-            //			Debug.Log (GD.MemCardsMove[i]);//,j,k]);
-            //			//					}
-            //			//				}
-            //			//			}
-            //		}
+            GD.MemCards = GDS.MemCards;          
             GD.MemCardsMove = GDS.MemCardsMove;
             GD.QMemCards = GDS.QMemCards;
             GD.Bonuses = GDS.Bonuses;
@@ -779,7 +772,7 @@ namespace LevelManager
             //Количество уровней
             public int[,,] LevelScore = new int[3, 201, 5];
             //0 - мой скор, 1- макс. скор, 2 - бронза, 3 - серебро, 4 - золото
-            public int[,] LevelLimitations = new int[201, 2];
+            public int[,] LevelLimitations = new int[201, 3];
             //0 - время, если есть, то количество секунд, 1 - ограничение по начальной длине змеи, если есть, количество блоков
             public int[] LevelSetting = new int[201];
             //число - номер набора тайлов (сеттинг - поле, лес, горы, лава и пр)
