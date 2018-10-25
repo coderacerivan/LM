@@ -267,7 +267,7 @@ namespace LevelManager
             {
                 GameData GD = GameData.getInstance();
                 int AddedLevel = checkedListBox1.SelectedIndex; ;//Номер уровня, который хотим добавить
-                for (int i = GD.LevelQuantity - 1; i < AddedLevel - 1; i--)
+                for (int i = GD.LevelQuantity - 1; i > AddedLevel - 1; i--)
                 {
                     GD.LevelNames[i + 1] = GD.LevelNames[i];
                     for (int j = 0; j < 3; j++)
@@ -275,25 +275,20 @@ namespace LevelManager
                         GD.LevelLimitations[i + 1, j] = GD.LevelLimitations[i, j];
                     }
                     //public int[,,] LevelMaps = new int[201, 101, 101];
-                    for (int j = 0; j < 201; j++)
+                    for (int a = 0; a < 101; a++)
                     {
-                        for (int a = 0; a < 101; a++)
+                        for (int b = 0; b < 101; b++)
                         {
-                            for (int b = 0; b < 101; b++)
-                            {
-                                GD.LevelMaps[j + 1, a, b] = GD.LevelMaps[j, a, b];
-                            }
+                            GD.LevelMaps[i + 1, a, b] = GD.LevelMaps[i, a, b];
                         }
                     }
+
                     //public int[,,] LevelScore = new int[3, 201, 5];
                     for (int j = 0; j < 3; j++)
                     {
-                        for (int a = 0; a < 201; a++)
+                        for (int b = 0; b < 5; b++)
                         {
-                            for (int b = 0; b < 5; b++)
-                            {
-                                GD.LevelScore[j, a + 1, b] = GD.LevelScore[j, a, b];
-                            }
+                            GD.LevelScore[j, i + 1, b] = GD.LevelScore[j, i, b];
                         }
                     }
                     GD.LevelSetting[i + 1] = GD.LevelSetting[i];
@@ -554,7 +549,7 @@ namespace LevelManager
                 GD.SaveGame();
                 textBox1.Text = "";
 
-                button8_Click(this,new EventArgs());
+                button8_Click(this, new EventArgs());
             }
             else
             {
@@ -574,6 +569,12 @@ namespace LevelManager
         {//Показать превью карты
             GameData GD = GameData.getInstance();
             int PreviewNumber = checkedListBox1.SelectedIndex;
+            textBox1.Text = GD.LevelNames[PreviewNumber];
+            textBox3.Text = GD.LevelScore[0, PreviewNumber, 2].ToString();
+            textBox4.Text = GD.LevelScore[0, PreviewNumber, 3].ToString();
+            textBox5.Text = GD.LevelScore[0, PreviewNumber, 4].ToString();
+            textBox6.Text = GD.LevelScore[0, PreviewNumber, 1].ToString();
+            comboBox1.SelectedText = GD.LevelSetting[PreviewNumber].ToString();
             int lenx = GD.LevelMaps.GetLength(1);
             int leny = GD.LevelMaps.GetLength(2);
             pictureBox4.Image = new Bitmap(lenx, leny);
@@ -639,7 +640,7 @@ namespace LevelManager
                         default:
                             col = Color.FromArgb(Color.Black.R, Color.Black.G, Color.Black.B);
                             break;
-                    }                    
+                    }
                     ((Bitmap)pictureBox4.Image).SetPixel(x, y, col);
 
 
@@ -647,6 +648,12 @@ namespace LevelManager
             }
 
 
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            pictureBox3.Image = new Bitmap(pictureBox4.Image.Width, pictureBox4.Image.Height);
+            pictureBox3.Image = (Bitmap)pictureBox4.Image;
         }
     }
 
@@ -750,7 +757,7 @@ namespace LevelManager
             GD.LevelSetting = GDS.LevelSetting;
             GD.LevelNames = GDS.LevelNames;
             GD.LevelMaps = GDS.LevelMaps;
-            GD.MemCards = GDS.MemCards;          
+            GD.MemCards = GDS.MemCards;
             GD.MemCardsMove = GDS.MemCardsMove;
             GD.QMemCards = GDS.QMemCards;
             GD.Bonuses = GDS.Bonuses;
