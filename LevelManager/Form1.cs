@@ -213,7 +213,7 @@ namespace LevelManager
                     {
                         if (GD.LevelNames[i] != "")
                         {
-                            checkedListBox1.Items.Add(GD.LevelNames[i] + " " + i + 1);
+                            checkedListBox1.Items.Add(GD.LevelNames[i] + " " + (i+1));
                         }
                         else
                         {
