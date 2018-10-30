@@ -319,7 +319,7 @@ namespace LevelManager
         }
 
         private void button9_Click(object sender, EventArgs e)
-        {//Добавляем уровень
+        {//Добавляем уровень ВЫШЕ
             if (textBox1.Text != "")
             {
                 GameData GD = GameData.getInstance();
@@ -439,7 +439,7 @@ namespace LevelManager
                     GD.LevelScore[scor, AddedLevel, 4] = Convert.ToInt32(textBox5.Text);
                 }
 
-                GD.LevelSetting[AddedLevel] = Convert.ToInt32(comboBox1.Text.ToString().Last());
+                GD.LevelSetting[AddedLevel] =comboBox1.SelectedIndex;
                 GD.LevelQuantity++;
                 GD.SaveGame();
                 textBox1.Text = "";
@@ -488,6 +488,7 @@ namespace LevelManager
             }
             GD.LevelQuantity--;
             GD.SaveGame();
+            button8_Click(this, new EventArgs());
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -601,7 +602,7 @@ namespace LevelManager
                     GD.LevelScore[scor, AddedLevel, 4] = Convert.ToInt32(textBox5.Text);
                 }
 
-                GD.LevelSetting[AddedLevel] = Convert.ToInt32(comboBox1.Text.ToString().Last());
+                GD.LevelSetting[AddedLevel] = comboBox1.SelectedIndex;
                 GD.LevelQuantity++;
                 GD.SaveGame();
                 textBox1.Text = "";
@@ -626,12 +627,15 @@ namespace LevelManager
         {//Показать превью карты
             GameData GD = GameData.getInstance();
             int PreviewNumber = checkedListBox1.SelectedIndex;
-            textBox1.Text = GD.LevelNames[PreviewNumber];
+            textBox1.Text = GD.LevelNames[PreviewNumber];//название уровня
+            textBox2.Text = GD.LevelLimitations[PreviewNumber, 1].ToString();// если есть - ограничение по максимальной начальной длине змеи
             textBox3.Text = GD.LevelScore[0, PreviewNumber, 2].ToString();
             textBox4.Text = GD.LevelScore[0, PreviewNumber, 3].ToString();
             textBox5.Text = GD.LevelScore[0, PreviewNumber, 4].ToString();
             textBox6.Text = GD.LevelScore[0, PreviewNumber, 1].ToString();
-            comboBox1.SelectedText = GD.LevelSetting[PreviewNumber].ToString();
+            comboBox1.SelectedIndex = GD.LevelSetting[PreviewNumber];            
+            trackBar3.Value = Convert.ToInt32(GD.LevelLimitations[PreviewNumber, 0]/30);//если есть - ограничение по времени прохождения уровня
+            trackBar4.Value = GD.LevelLimitations[PreviewNumber, 2]; //Процент плодовых деревьев среди всей массы деревьев уровня
             int lenx = GD.LevelMaps.GetLength(1);
             int leny = GD.LevelMaps.GetLength(2);
             pictureBox4.Image = new Bitmap(lenx, leny);
