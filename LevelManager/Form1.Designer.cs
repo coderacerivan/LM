@@ -403,7 +403,7 @@
             this.trackBar2.Location = new System.Drawing.Point(586, 453);
             this.trackBar2.Maximum = 3;
             this.trackBar2.Name = "trackBar2";
-            this.trackBar2.Size = new System.Drawing.Size(198, 45);
+            this.trackBar2.Size = new System.Drawing.Size(173, 45);
             this.trackBar2.TabIndex = 30;
             this.trackBar2.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             // 
@@ -411,7 +411,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(584, 193);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(94, 20);
+            this.textBox1.Size = new System.Drawing.Size(175, 20);
             this.textBox1.TabIndex = 31;
             // 
             // label5
@@ -446,7 +446,7 @@
             // 
             this.button10.Location = new System.Drawing.Point(689, 219);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
+            this.button10.Size = new System.Drawing.Size(70, 23);
             this.button10.TabIndex = 35;
             this.button10.Text = "Удалить";
             this.button10.UseVisualStyleBackColor = true;
@@ -475,7 +475,7 @@
             this.trackBar3.BackColor = System.Drawing.SystemColors.Control;
             this.trackBar3.Location = new System.Drawing.Point(585, 398);
             this.trackBar3.Name = "trackBar3";
-            this.trackBar3.Size = new System.Drawing.Size(198, 45);
+            this.trackBar3.Size = new System.Drawing.Size(174, 45);
             this.trackBar3.TabIndex = 37;
             this.trackBar3.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trackBar3.Scroll += new System.EventHandler(this.trackBar3_Scroll);
@@ -484,18 +484,18 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(584, 357);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(199, 20);
+            this.textBox2.Size = new System.Drawing.Size(175, 20);
             this.textBox2.TabIndex = 39;
             this.textBox2.Text = "0";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(582, 341);
+            this.label9.Location = new System.Drawing.Point(584, 341);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(206, 13);
+            this.label9.Size = new System.Drawing.Size(164, 13);
             this.label9.TabIndex = 40;
-            this.label9.Text = "Ограничение по начальной длине змеи";
+            this.label9.Text = "Ограничение начальной длины";
             // 
             // label10
             // 
@@ -512,7 +512,7 @@
             this.trackBar4.Location = new System.Drawing.Point(584, 293);
             this.trackBar4.Maximum = 100;
             this.trackBar4.Name = "trackBar4";
-            this.trackBar4.Size = new System.Drawing.Size(198, 45);
+            this.trackBar4.Size = new System.Drawing.Size(175, 45);
             this.trackBar4.TabIndex = 41;
             this.trackBar4.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trackBar4.Value = 25;
