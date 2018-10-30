@@ -39,7 +39,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
@@ -83,6 +82,8 @@
             this.label15 = new System.Windows.Forms.Label();
             this.button11 = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -91,6 +92,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar4)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -118,14 +120,14 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(159, 32);
             this.button1.TabIndex = 2;
-            this.button1.Text = "1. Загрузить";
+            this.button1.Text = "1. Загрузить картинку";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(9, 441);
+            this.button2.Location = new System.Drawing.Point(12, 453);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(159, 32);
+            this.button2.Size = new System.Drawing.Size(159, 34);
             this.button2.TabIndex = 5;
             this.button2.Text = "2. Конвертировать в Ч/Б";
             this.button2.UseVisualStyleBackColor = true;
@@ -152,7 +154,7 @@
             // trackBar1
             // 
             this.trackBar1.BackColor = System.Drawing.SystemColors.Control;
-            this.trackBar1.Location = new System.Drawing.Point(13, 410);
+            this.trackBar1.Location = new System.Drawing.Point(13, 407);
             this.trackBar1.Maximum = 255;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(155, 45);
@@ -163,11 +165,11 @@
             // button3
             // 
             this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button3.Location = new System.Drawing.Point(188, 522);
+            this.button3.Location = new System.Drawing.Point(12, 499);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(176, 32);
             this.button3.TabIndex = 9;
-            this.button3.Text = "3. Загрузить и намарафетить";
+            this.button3.Text = "3. Перенести ЧБ в редактор";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -189,16 +191,6 @@
             this.pictureBox3.TabIndex = 7;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox3_MouseDown);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(370, 523);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(160, 32);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "4. Выгрузить";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // radioButton1
             // 
@@ -268,7 +260,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(703, 523);
+            this.button5.Location = new System.Drawing.Point(359, 499);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(124, 32);
             this.button5.TabIndex = 18;
@@ -278,17 +270,17 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(844, 523);
+            this.button6.Location = new System.Drawing.Point(500, 499);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(124, 32);
             this.button6.TabIndex = 19;
-            this.button6.Text = "Загрузить в файл";
+            this.button6.Text = "Сохранить!";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(974, 523);
+            this.button7.Location = new System.Drawing.Point(630, 499);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(215, 32);
             this.button7.TabIndex = 20;
@@ -313,11 +305,11 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(536, 523);
+            this.button8.Location = new System.Drawing.Point(192, 499);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(161, 32);
             this.button8.TabIndex = 22;
-            this.button8.Text = "Загрузить карты из файла";
+            this.button8.Text = "Загрузить!";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
@@ -408,7 +400,7 @@
             // trackBar2
             // 
             this.trackBar2.BackColor = System.Drawing.SystemColors.Control;
-            this.trackBar2.Location = new System.Drawing.Point(586, 467);
+            this.trackBar2.Location = new System.Drawing.Point(586, 453);
             this.trackBar2.Maximum = 3;
             this.trackBar2.Name = "trackBar2";
             this.trackBar2.Size = new System.Drawing.Size(198, 45);
@@ -601,7 +593,7 @@
             "Поле 2",
             "Горы 3",
             "Лава 4"});
-            this.comboBox1.Location = new System.Drawing.Point(789, 496);
+            this.comboBox1.Location = new System.Drawing.Point(1062, 491);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 51;
@@ -635,12 +627,28 @@
             this.label16.TabIndex = 54;
             this.label16.Text = "Порог черного";
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 538);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1201, 22);
+            this.statusStrip1.TabIndex = 55;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(1201, 567);
+            this.ClientSize = new System.Drawing.Size(1201, 560);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.label15);
@@ -684,7 +692,6 @@
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox3);
@@ -707,6 +714,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar4)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -724,7 +733,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton3;
@@ -768,6 +776,8 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
 

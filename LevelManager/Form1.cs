@@ -156,21 +156,45 @@ namespace LevelManager
             }
 
             pictureBox3.Invalidate();
-            //MessageBox.Show("x "+ Convert.ToInt32(e.X / kx) + " y " + Convert.ToInt32(e.Y / ky) + " color "+ ((Bitmap)pictureBox3.Image).GetPixel(Convert.ToInt32(e.X / kx), Convert.ToInt32(e.Y / ky)));
-        }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
+
+
+
+            // Статистика
             int yel = 0;
             int red = 0;
             int gra = 0;
             int blu = 0;
             int bla = 0;
             int whi = 0;
+            int start = 0;
+            int finish = 0;
+            int aqua = 0;
+            int border = 0;
+            int startnpc = 0;
+            int acc_input = 0;
+            int acc_output = 0;
+
             for (int x = 0; x < pictureBox3.Image.Width; x++)
             {
                 for (int y = 0; y < pictureBox3.Image.Height; y++)
                 {
+                    //+    0  - трава
+                    //+    1  - бордюр
+                    //+    2  - камень
+                    //+    3  - дерево
+                    //+    4  - золото
+                    //+    5  - бонус скорость
+                    //+    6  - бонус агрессия
+                    //+    7  - вода
+                    //-    8  - стационарный ускоритель вход
+                    //-    9  - стационарный ускоритель выход
+                    //+    89 - старт для неписей
+                    //+    90 - старт
+                    //+    91 - финиш
+                    //    97 - хвост
+                    //    98 - тело
+                    //    99 - башка
                     if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Yellow.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Yellow.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Yellow.B)
                     {
                         yel++;
@@ -195,10 +219,43 @@ namespace LevelManager
                     {
                         whi++;
                     }
+                    if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == 128 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == 255 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == 128)
+                    {
+                        start++;
+                    }
+                    if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Lime.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Lime.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Lime.B)
+                    {
+                        finish++;
+                    }
+                    if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Aqua.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Aqua.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Aqua.B)
+                    {
+                        aqua++;
+                    }
+                    if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == 0 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == 64 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == 0)
+                    {
+                        border++;
+                    }
+                    if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Green.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Green.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Green.B)
+                    {
+                        startnpc++;
+                    }
+                    if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == 255 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == 128 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == 0)
+                    {
+                        acc_input++;
+                    }
+                    if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == 192 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == 64 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == 0)
+                    {
+                        acc_output++;
+                    }
                 }
             }
-            MessageBox.Show("Эта карта содержит:\nЗолота: " + yel + "\nУскорителей: " + blu + "\nАгрессии: " + red + "\nКамней: " + gra + "\nБелоты: " + whi + "\nЧерноты: " + bla);
+
+            toolStripStatusLabel1.Text = "Эта карта содержит:   Золота: " + yel + "   Ускорителей: " + blu + "   Агрессии: " + red + "   Камней: " + gra + "   Травы: " + whi + "   Деревьев: " + bla +
+                "   Воды: " + aqua + "   Ст.уск.вх: " + acc_input + "   Ст.уск.вых: " + acc_output + "   Вх.NPC: " + startnpc + "   Бордюра: " + border + "   Т.старта: " + start + "   Т.финиша: " + finish;
+
         }
+
+
 
         private void button8_Click(object sender, EventArgs e)
         {//Загружаем файл карт
@@ -213,11 +270,11 @@ namespace LevelManager
                     {
                         if (GD.LevelNames[i] != "")
                         {
-                            checkedListBox1.Items.Add(GD.LevelNames[i] + " " + (i+1));
+                            checkedListBox1.Items.Add(GD.LevelNames[i] + " " + (i + 1));
                         }
                         else
                         {
-                            checkedListBox1.Items.Add("Уровень " + i + 1);
+                            checkedListBox1.Items.Add("Уровень " + (i + 1));
                         }
 
                     }
@@ -652,8 +709,110 @@ namespace LevelManager
 
         private void button7_Click(object sender, EventArgs e)
         {
-            pictureBox3.Image = new Bitmap(pictureBox4.Image.Width, pictureBox4.Image.Height);
-            pictureBox3.Image = (Bitmap)pictureBox4.Image;
+
+            try
+            {
+                pictureBox3.Image = new Bitmap(pictureBox4.Image.Width, pictureBox4.Image.Height);
+                pictureBox3.Image = (Bitmap)pictureBox4.Image;
+                // Статистика
+                int yel = 0;
+                int red = 0;
+                int gra = 0;
+                int blu = 0;
+                int bla = 0;
+                int whi = 0;
+                int start = 0;
+                int finish = 0;
+                int aqua = 0;
+                int border = 0;
+                int startnpc = 0;
+                int acc_input = 0;
+                int acc_output = 0;
+
+                for (int x = 0; x < pictureBox3.Image.Width; x++)
+                {
+                    for (int y = 0; y < pictureBox3.Image.Height; y++)
+                    {
+                        //+    0  - трава
+                        //+    1  - бордюр
+                        //+    2  - камень
+                        //+    3  - дерево
+                        //+    4  - золото
+                        //+    5  - бонус скорость
+                        //+    6  - бонус агрессия
+                        //+    7  - вода
+                        //-    8  - стационарный ускоритель вход
+                        //-    9  - стационарный ускоритель выход
+                        //+    89 - старт для неписей
+                        //+    90 - старт
+                        //+    91 - финиш
+                        //    97 - хвост
+                        //    98 - тело
+                        //    99 - башка
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Yellow.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Yellow.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Yellow.B)
+                        {
+                            yel++;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Gray.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Gray.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Gray.B)
+                        {
+                            gra++;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Red.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Red.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Red.B)
+                        {
+                            red++;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Blue.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Blue.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Blue.B)
+                        {
+                            blu++;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Black.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Black.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Black.B)
+                        {
+                            bla++;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.White.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.White.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.White.B)
+                        {
+                            whi++;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == 128 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == 255 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == 128)
+                        {
+                            start++;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Lime.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Lime.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Lime.B)
+                        {
+                            finish++;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Aqua.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Aqua.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Aqua.B)
+                        {
+                            aqua++;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == 0 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == 64 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == 0)
+                        {
+                            border++;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == Color.Green.R && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == Color.Green.G && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == Color.Green.B)
+                        {
+                            startnpc++;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == 255 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == 128 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == 0)
+                        {
+                            acc_input++;
+                        }
+                        if (((Bitmap)pictureBox3.Image).GetPixel(x, y).R == 192 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).G == 64 && ((Bitmap)pictureBox3.Image).GetPixel(x, y).B == 0)
+                        {
+                            acc_output++;
+                        }
+                    }
+                }
+
+                toolStripStatusLabel1.Text = "Эта карта содержит:   Золота: " + yel + "   Ускорителей: " + blu + "   Агрессии: " + red + "   Камней: " + gra + "   Травы: " + whi + "   Деревьев: " + bla +
+                    "   Воды: " + aqua + "   Ст.уск.вх: " + acc_input + "   Ст.уск.вых: " + acc_output + "   Вх.NPC: " + startnpc + "   Бордюра: " + border + "   Т.старта: " + start + "   Т.финиша: " + finish;
+
+            }
+            catch
+            {
+                MessageBox.Show("В превью пусто!");
+            }
+
         }
     }
 
